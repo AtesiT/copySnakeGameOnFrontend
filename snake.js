@@ -93,7 +93,12 @@ function update() {
 
     // Условия прекращения игры
     // Если выходит за рамки змея, то проиграл
-    if (snakeX < 0 || snakeX > cols.blockSize || snakeY < 0 || snakeY > rows*blockSize) {
+    if (snakeX < 0 || snakeX > cols.blockSize|| snakeY < 0 || snakeY > rows*blockSize) {
+        gameOver = true;
+        alert('Проиграл');
+    }
+
+    if (snakeX > cols*blockSize - 1 || snakeY < 0 || snakeY > rows*blockSize -1) {
         gameOver = true;
         alert('Проиграл');
     }
