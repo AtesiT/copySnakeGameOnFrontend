@@ -81,15 +81,15 @@ function update() {
         snakeBody[0] =  [snakeX, snakeY]
     }  
 
-    // Для роста змейки || Рисуется тело змеи  
-    for (let i = 0; i < snakeBody.length; i++) {
-        context.fillRect(snakeBody[i][0], snakeBody[i][1], blockSize, blockSize);
-    }
-
     // Скорость и положение меняется
     snakeX+= VelocityX * blockSize;
     snakeY+= VelocityY * blockSize;
     context.fillRect(snakeX, snakeY, blockSize, blockSize);
+
+    // Для роста змейки || Рисуется тело змеи  
+    for (let i = 0; i < snakeBody.length; i++) {
+        context.fillRect(snakeBody[i][0], snakeBody[i][1], blockSize, blockSize);
+    }
 
     // Условия прекращения игры
     // Если выходит за рамки змея, то проиграл
@@ -97,9 +97,11 @@ function update() {
         gameOver = true;
         alert('Проиграл');
     }
+
+
     // Если врезаться в тело
     for (let i = 0; i < snakeBody.length; i++) {
-        if (snakeX == snakeBody[i][0] && snakyY == snakeBody[i][1]) {
+        if (snakeX == snakeBody[i][0] && snakeY == snakeBody[i][1]) {
             gameOver = true;
             alert('Проиграл');
         }
